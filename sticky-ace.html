@@ -1,0 +1,82 @@
+<link rel="import" href="../bower-components/polymer/polymer.html">
+<link rel="import" href="../bower-components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../bower-components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower-components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower-components/paper-item/paper-item.html">
+
+<dom-module id="app-editor">
+  <template>
+    <style>
+      :host {
+        display: block;
+        @apply(--app-editor);
+      }
+      #editor {
+        width: var(--app-editor-width);
+        height: var(--app-editor-height);
+        font-size: var(--app-editor-font-size);
+        margin-bottom: 0px;
+      }
+      #theme {
+        margin-left: 25px;
+      }
+      paper-toggle-button {
+        --paper-toggle-button-label-color: var(--app-editor-color);
+        --paper-toggle-button-checked-bar-color: var(--app-editor-highlight-color);
+        --paper-toggle-button-checked-button-color: var(--app-editor-highlight-color);
+        --paper-toggle-button-unchecked-button-color: var(--app-editor-color);
+      }
+      paper-dropdown-menu {
+        --paper-input-container-input-color: var(--app-editor-color);
+        };
+      }
+    </style>
+    <div id='editor'></div>
+    <div>
+      <paper-toggle-button checked="{{useVim}}" >Vim Mode</paper-toggle-button>
+      <paper-dropdown-menu no-label-float id="theme">
+        <paper-menu class="dropdown-content" selected="{{theme}}" attr-for-selected="value">
+          <paper-item value="ambiance">ambiance</paper-item>
+          <paper-item value="chaos">chaos</paper-item>
+          <paper-item value="chrome">chrome</paper-item>
+          <paper-item value="clouds">clouds</paper-item>
+          <paper-item value="clouds_midnight">clouds_midnight</paper-item>
+          <paper-item value="cobalt">cobalt</paper-item>
+          <paper-item value="crimson_editor">crimson_editor</paper-item>
+          <paper-item value="dawn">dawn</paper-item>
+          <paper-item value="dreamweaver">dreamweaver</paper-item>
+          <paper-item value="eclipse">eclipse</paper-item>
+          <paper-item value="github">github</paper-item>
+          <paper-item value="idle_fingers">idle_fingers</paper-item>
+          <paper-item value="iplastic">iplastic</paper-item>
+          <paper-item value="katzenmilch">katzenmilch</paper-item>
+          <paper-item value="kr_theme">kr_theme</paper-item>
+          <paper-item value="kuroir">kuroir</paper-item>
+          <paper-item value="merbivore">merbivore</paper-item>
+          <paper-item value="merbivore_soft">merbivore_soft</paper-item>
+          <paper-item value="mono_industrial">mono_industrial</paper-item>
+          <paper-item value="monokai">monokai</paper-item>
+          <paper-item value="pastel_on_dark">pastel_on_dark</paper-item>
+          <paper-item value="solarized_dark">solarized_dark</paper-item>
+          <paper-item value="solarized_light">solarized_light</paper-item>
+          <paper-item value="sqlserver">sqlserver</paper-item>
+          <paper-item value="terminal">terminal</paper-item>
+          <paper-item value="textmate">textmate</paper-item>
+          <paper-item value="tomorrow">tomorrow</paper-item>
+          <paper-item value="tomorrow_night">tomorrow_night</paper-item>
+          <paper-item value="tomorrow_night_blue">tomorrow_night_blue</paper-item>
+          <paper-item value="tomorrow_night_bright">tomorrow_night_bright</paper-item>
+          <paper-item value="tomorrow_night_eighties">tomorrow_night_eighties</paper-item>
+          <paper-item value="twilight">twilight</paper-item>
+          <paper-item value="vibrant_ink">vibrant_ink</paper-item>
+          <paper-item value="xcode">xcode</paper-item>
+        </paper-menu>
+      </paper-dropdown-menu>
+    </div>
+    
+  </template>
+</dom-module>
+<script src="../ace-build/src-min/ace.js"></script>
+<script src="../cookies-js/dist/cookies.min.js"></script>
+<script src="sticky-ace.js"></script>
+
