@@ -19,7 +19,7 @@
   }
 
   Polymer({
-    is: "app-editor",
+    is: "sticky-ace-editor",
     properties: {
       editor: {
         type: Object,
@@ -40,14 +40,18 @@
         type: Boolean,
         value: function() { return this._defaultUseVim(); },
         observer: "_useVimChanged"
+      },
+      mode: {
+        type: String,
+        value: "javascript",
+        observer: "_modeChanged"
       }
     },
     attached: function() {
-      console.log("app-editor attached");
       configureAceEditorVimCommands(this);
       this.editor = ace.edit(this.$$("#editor"));
       this.editor.setTheme("ace/theme/"+this.theme);
-      this.editor.getSession().setMode("ace/mode/markdown");
+      this.editor.getSession().setMode("ace/mode/"+this.mode);
       if (this.useVim) {
         this.editor.setKeyboardHandler("ace/keyboard/vim");
       }
@@ -73,6 +77,9 @@
         this.editor.setKeyboardHandler("");
       }
       Cookies.set("sticky-ace-use-vim", useVim);
+    },
+    _modeChanged: function(newMode) {
+      this.editor.setMode("ace/mode/"+newMode);
     },
     _defaultTheme: function() {
       var theme = Cookies.get("sticky-ace-theme");
