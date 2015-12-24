@@ -79,7 +79,7 @@
       Cookies.set("sticky-ace-use-vim", useVim);
     },
     _modeChanged: function(newMode) {
-      this.editor.getSesion().setMode("ace/mode/"+newMode);
+      this.editor.getSession().setMode("ace/mode/"+newMode);
     },
     _defaultTheme: function() {
       var theme = Cookies.get("sticky-ace-theme");
